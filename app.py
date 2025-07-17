@@ -1,16 +1,52 @@
+from flask import Flask, render_template, request, redirect
 import sqlite3
-from flask import *
 
 app = Flask(__name__)
 
-conexao_do_banco = sqlite3.connect('banco.db')
-SCHEMA = 'schema.sql'
-
-with open(SCHEMA) as f:
-    conexao_do_banco.executescript(f.read())
-
-conexao_do_banco.close()
+def conecta():
+    return sqlite3.connect('banco.db')
 
 @app.route('/')
-def home():
+def index():   
     return render_template('index.html')
+
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    erro = None  
+
+    if request.method == 'POST':
+        email = request.form['email']
+        telefone = request.form['telefone']
+        categoria = request.form['categoria']
+        senha = request.form['senha']
+        confirmar = request.form['confirmar']
+
+  
+        if not email or not telefone or not categoria or not senha or not confirmar:
+            erro = 'Preencha todos os campos.'
+        elif senha != confirmar:
+            erro = 'As senhas não são iguais.'
+        else:
+            conexao_banco = conecta()
+            executador = conexao_banco.cursor()
+
+            executador.execute('SELECT * FROM funcionarios WHERE email = ?', (email,))
+            existe = executador.fetchone()
+
+            if existe:
+                erro = 'Esse email já está cadastrado.'
+            else:
+                executador.execute('INSERT INTO funcionarios (email, telefone, categoria, senha) VALUES (?, ?, ?, ?)',
+                            (email, telefone, categoria, senha))
+                conexao_banco.commit()
+                executador.close()
+                return redirect('/registro_sucesso')  
+
+    return render_template('registro.html', erro=erro)
+
+@app.route('/registro_sucesso')
+def sucesso():
+    return 'Cadastro feito com sucesso!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
