@@ -1,14 +1,11 @@
 import sqlite3
 
-# insert
+conexao_banco = sqlite3.connect('banco.db')
+SCHEMA = 'schema.sql'
 
-conexao_do_banco = sqlite3.connect('banco.db')
+with open(SCHEMA) as f:
+    conexao_banco.executescript(f.read())
 
-SQL = 'INSERT INTO users(nome) VALUES (?)'
+conexao_banco.close()
 
-nome = 'Teste'
 
-conexao_do_banco.execute(SQL, (nome, ))
-conexao_do_banco.commit()
-
-conexao_do_banco.close()
