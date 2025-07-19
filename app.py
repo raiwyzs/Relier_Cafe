@@ -44,6 +44,29 @@ def registro():
 
     return render_template('registro.html', erro=erro)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    erro = None
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['senha']
+
+        conexao_banco = conecta()
+        cursor = conexao_banco.cursor()
+        cursor.execute('SELECT senha FROM funcionarios WHERE email = ?', (email,))
+        resultado = cursor.fetchone()
+
+        if resultado is None:
+            erro = 'Usuário não encontrado.'
+        else:
+            senha_armazenada = resultado[0]
+            if senha != senha_armazenada:
+                erro = 'Senha incorreta.'
+            else:
+                return 'Login efetuado com sucesso!'  # Aqui você pode redirecionar para outra página
+
+    return render_template('login.html', erro=erro)
+
 @app.route('/registro_sucesso')
 def sucesso():
     return 'Cadastro feito com sucesso!'
