@@ -8,6 +8,7 @@ def conecta():
 
 @app.route('/')
 def index():   
+
     return render_template('index.html')
 
 @app.route('/registro', methods=['GET', 'POST'])
@@ -70,6 +71,10 @@ def login():
 @app.route('/registro_sucesso')
 def sucesso():
     return 'Cadastro feito com sucesso!'
+
+@app.route('/logout')
+def logout():
+    return render_template ('registro.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
