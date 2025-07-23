@@ -9,17 +9,17 @@
 
     <form method="POST">
         <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" placeholder="Digite seu email" required><br><br>
+        <input type="email" name="email" id="email" placeholder="Digite o seu email" required><br><br>
 
         <label for="senha">Senha:</label><br>
-        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required><br><br>
+        <input type="password" name="senha" id="senha" placeholder="Digite a sua senha" required><br><br>
 
         <input type="submit" value="Entrar">
     </form>
     <a href = {{ url_for('logout') }}>Sair</a>
 
     {% if erro %}
-        <p style="color:red;">{{ erro }}</p>
+        <p style="color:rgb(187, 39, 39);">{{ erro }}</p>
     {% endif %}
 </body>
 </html>
