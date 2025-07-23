@@ -16,6 +16,7 @@
 
         <input type="submit" value="Entrar">
     </form>
+    <a href = {{ url_for('logout') }}>Sair</a>
 
     {% if erro %}
         <p style="color:red;">{{ erro }}</p>
