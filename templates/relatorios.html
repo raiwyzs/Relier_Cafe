@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Relatórios Mensais</h2>
+<h3>Renda</h3>
+<table>
+  <tr><th>Mês</th><th>Renda</th></tr>
+  {% for mes, renda in renda_mensal %}
+  <tr>
+    <td>{{ mes }}</td>
+    <td>R$ {{ renda }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<h3>Custo de Ingredientes</h3>
+<table>
+  <tr><th>Mês</th><th>Custo</th></tr>
+  {% for mes, custo in custo_mensal %}
+  <tr>
+    <td>{{ mes }}</td>
+    <td>R$ {{ custo }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
