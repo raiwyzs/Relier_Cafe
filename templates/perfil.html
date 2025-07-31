@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Perfil</h2>
+<ul>
+  <li>Nome: {{ funcionario.nome }}</li>
+  <li>Email: {{ funcionario.email }}</li>
+  <li>Telefone: {{ funcionario.telefone }}</li>
+  <li>Categoria: {{ funcionario.categoria }}</li>
+</ul>
+{% endblock %}
