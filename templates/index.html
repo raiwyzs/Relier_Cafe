@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +7,10 @@
 </head>
 <body>
     <h1>Teste</h1>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h2>Bem-vindo, {{ funcionario.nome }}!</h2>
+    <p>Categoria: {{ funcionario.categoria }}</p>
+    {% endblock %}
 </body>
 </html>
