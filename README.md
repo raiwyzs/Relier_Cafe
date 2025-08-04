@@ -14,19 +14,21 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 - Gestão de perfil
 - Controle financeiro
 
-## 🛠 Tecnologias
 
-- Python 
-- HTML
-- CSS
-- SQLITE
+  ## 🛠 **Tecnologias**  
+| Backend       | Frontend    | Banco de Dados |  
+|---------------|-------------|----------------|  
+| Python        | HTML5       | SQLite         |  
+| Flask/Django? | CSS3        |                |  
 
-## 👥 Equipe
 
-- [Ezaely Clara](https://github.com/Ezaellyclara)
-- [Isabelle Vitória](https://github.com/Isa3110)
-- [Raissa Kelly](https://github.com/raiwyzs)
-- [Rita de Cássia](https://github.com/Ritaaissac)
+
+## 👥 **Equipe**  
+<div align="center">  
+
+| [<img src="https://via.placeholder.com/100" width="50"><br>Ezaely Clara](https://github.com/Ezaellyclara) | [<img src="https://via.placeholder.com/100" width="50"><br>Isabelle Vitória](https://github.com/Isa3110) | [<img src="https://via.placeholder.com/100" width="50"><br>Raissa Kelly](https://github.com/raiwyzs) | [<img src="https://via.placeholder.com/100" width="50"><br>Rita de Cássia](https://github.com/Ritaaissac) |  
+|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|  
+
   
 
 ## 📝 Sobre o Projeto
