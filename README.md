@@ -16,12 +16,14 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 
 ## 🛠 Tecnologias
 
-- Python (41.7%)
-- HTML (58.3%)
+- Python 
+- HTML
+- CSS
+- SQLITE
 
 ## 👥 Equipe
 
-- [rainyzs](https://github.com/rainyzs)
+- [Raissa](https://github.com/raiwyzs)
 - [Ritaaisasc](https://github.com/Ritaaisasc)
 - [Ezaelyclara](https://github.com/Ezaelyclara)
 - [Isa3110](https://github.com/Isa3110)
