@@ -23,7 +23,7 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 
 ## 👥 Equipe
 
-- [Ezaely Clara](https://github.com/Ezaelyclara)
+- [Ezaely Clara](https://github.com/Ezaellyclara)
 - [Isabelle Vitória](https://github.com/Isa3110)
 - [Raissa Kelly](https://github.com/raiwyzs)
 - [Rita de Cássia](https://github.com/Ritaaissac)
