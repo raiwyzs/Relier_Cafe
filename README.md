@@ -1,6 +1,6 @@
 # Relier Café ☕
 
-photo-1445116572660-236099ec97a0.avif
+![Banner do Relier Café](https://github.com/seu-usuario/Relier_Cafe/blob/main/assets/banner.png?raw=true)
 
 > Sistema de gerenciamento para cafeterias
 
