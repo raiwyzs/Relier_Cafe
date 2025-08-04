@@ -1,6 +1,6 @@
 # Relier Café ☕
 
-(caminho/para/imagem.png)
+photo-1445116572660-236099ec97a0.avif
 
 > Sistema de gerenciamento para cafeterias
 
