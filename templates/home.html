@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relier Café - Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .btn-custom {
+            background-color: #6f42c1;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div>
+            <h1 class="display-4">Relier Café</h1>
+            <p class="lead">O melhor café da cidade, feito com paixão e dedicação</p>
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-custom mt-3">Área de Funcionários</a>
+        </div>
+    </div>
+
+    <div class="container text-center py-5">
+        <h2>Visite nossa cafeteria</h2>
+        <p class="lead">Experimente nossos cafés especiais e ambiente acolhedor</p>
+    </div>
+</body>
+</html>
