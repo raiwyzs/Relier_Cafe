@@ -19,7 +19,7 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 | Backend       | Frontend    | Banco de Dados |  
 |---------------|-------------|----------------|  
 | Python        | HTML5       | SQLite         |  
-| Flask/Django? | CSS3        |                |  
+| Flask         | CSS3        |                |  
 
 
 
