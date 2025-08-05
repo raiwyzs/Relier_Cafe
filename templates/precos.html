@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Tabela de Preços</h2>
+
+{% if mensagem %}
+  <div class="alert alert-success">{{ mensagem }}</div>
+{% endif %}
+
 <table>
-  <tr><th>Produto</th><th>Preço</th>
-  {% if pode_editar %}<th>Editar</th>{% endif %}
+  <tr>
+    <th>Produto</th>
+    <th>Preço</th>
+    {% if pode_editar %}<th>Editar</th>{% endif %}
   </tr>
   {% for produto in produtos %}
   <tr>
@@ -21,4 +28,13 @@
   </tr>
   {% endfor %}
 </table>
+
+{% if pode_editar %}
+<h3>Adicionar Novo Produto</h3>
+<form method="post" class="mt-3">
+  <input type="text" name="novo_nome" placeholder="Nome do produto" required>
+  <input type="number" step="0.01" name="novo_preco_produto" placeholder="Preço" required>
+  <button type="submit">Adicionar</button>
+</form>
+{% endif %}
 {% endblock %}
