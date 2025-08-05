@@ -1,89 +1,58 @@
+# insert.py
 import sqlite3
-import hashlib
+from werkzeug.security import generate_password_hash
 
-SCHEMA = 'schema.sql'
+GERENTES = [
+    {
+        'nome': 'Rita',
+        'email': 'rita.gerente@reliercafe.com',
+        'telefone': '(11) 99999-1111',
+        'categoria': 'gerente',
+        'senha': 'SenhaSegura123'
+    },
+    {
+        'nome': 'Isabelle',
+        'email': 'isabelle.gerente@reliercafe.com',
+        'telefone': '(11) 99999-2222',
+        'categoria': 'gerente',
+        'senha': 'SenhaSegura123'
+    },
+    {
+        'nome': 'Ezaelly',
+        'email': 'ezaelly.gerente@reliercafe.com',
+        'telefone': '(11) 99999-3333',
+        'categoria': 'gerente',
+        'senha': 'SenhaSegura123'
+    },
+    {
+        'nome': 'Raissa',
+        'email': 'raissa.gerente@reliercafe.com',
+        'telefone': '(11) 99999-4444',
+        'categoria': 'gerente',
+        'senha': 'SenhaSegura123'
+    }
+]
 
+with open('schema.sql', 'r', encoding='utf-8') as f:
+    sql = f.read()
 
-conexao_banco = sqlite3.connect('projeto.db')
-with open(SCHEMA) as f:
-    conexao_banco.executescript(f.read())
-conexao_banco.close()
+conn = sqlite3.connect('projeto.db')
+cursor = conn.cursor()
+cursor.executescript(sql)
 
-def hash_password(password):
-    secret_key = 'sua_secret_key_aqui'
-    return hashlib.sha256((password + secret_key).encode()).hexdigest()
-
-def inserir_funcionario(nome, email, telefone, categoria, senha):
-    conn = sqlite3.connect('projeto.db')
-    cursor = conn.cursor()
-    senha_hash = hash_password(senha)
+for gerente in GERENTES:
+    hash_senha = generate_password_hash(gerente['senha'])
     cursor.execute("""
         INSERT INTO funcionarios (nome, email, telefone, categoria, senha_hash)
         VALUES (?, ?, ?, ?, ?)
-    """, (nome, email, telefone, categoria, senha_hash))
-    conn.commit()
-    conn.close()
+    """, (
+        gerente['nome'],
+        gerente['email'],
+        gerente['telefone'],
+        gerente['categoria'],
+        hash_senha
+    ))
 
-def inserir_produto(nome, preco):
-    conn = sqlite3.connect('projeto.db')
-    cursor = conn.cursor()
-    cursor.execute("""
-        INSERT INTO produtos (nome, preco)
-        VALUES (?, ?)
-    """, (nome, preco))
-    conn.commit()
-    conn.close()
-
-def inserir_ingrediente(nome, custo):
-    conn = sqlite3.connect('projeto.db')
-    cursor = conn.cursor()
-    cursor.execute("""
-        INSERT INTO ingredientes (nome, custo)
-        VALUES (?, ?)
-    """, (nome, custo))
-    conn.commit()
-    conn.close()
-
-def inserir_pedido(funcionario_id, data, forma_pagamento, valor_total, produtos, ingredientes):
-    conn = sqlite3.connect('projeto.db')
-    cursor = conn.cursor()
-    cursor.execute("""
-        INSERT INTO pedidos (funcionario_id, data, forma_pagamento, valor_total)
-        VALUES (?, ?, ?, ?)
-    """, (funcionario_id, data, forma_pagamento, valor_total))
-    pedido_id = cursor.lastrowid
-    for produto_id, quantidade in produtos:
-        cursor.execute("""
-            INSERT INTO pedido_produto (pedido_id, produto_id, quantidade)
-            VALUES (?, ?, ?)
-        """, (pedido_id, produto_id, quantidade))
-    for ingrediente_id, quantidade in ingredientes:
-        cursor.execute("""
-            INSERT INTO pedido_ingrediente (pedido_id, ingrediente_id, quantidade)
-            VALUES (?, ?, ?)
-        """, (pedido_id, ingrediente_id, quantidade))
-    conn.commit()
-    conn.close()
-
-def inserir_produtos_ficticios():
-    produtos = [
-        ("Café Expresso", 5.00),
-        ("Cappuccino", 7.50),
-        ("Pão de Queijo", 4.00),
-        ("Bolo de Chocolate", 6.50),
-        ("Suco Natural", 5.50),
-        ("Croissant", 6.00)
-    ]
-    conn = sqlite3.connect('projeto.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM produtos")
-    if cursor.fetchone()[0] == 0:
-        for nome, preco in produtos:
-            cursor.execute("INSERT INTO produtos (nome, preco) VALUES (?, ?)", (nome, preco))
-        conn.commit()
-    conn.close()
-
-
-inserir_produtos_ficticios()
-
-
+conn.commit()
+conn.close()
+print("Tabelas criadas e gerentes iniciais cadastrados com sucesso!")
