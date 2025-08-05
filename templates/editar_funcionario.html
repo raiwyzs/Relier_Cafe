@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Editar Funcionário</h2>
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" name="nome" class="form-control" value="{{ funcionario[1] }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" value="{{ funcionario[2] }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" name="telefone" class="form-control" value="{{ funcionario[3] }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Categoria</label>
+        <select name="categoria" class="form-control" required>
+            <option value="cozinheiro" {% if funcionario[4] == 'cozinheiro' %}selected{% endif %}>Cozinheiro</option>
+            <option value="caixa" {% if funcionario[4] == 'caixa' %}selected{% endif %}>Caixa</option>
+            <option value="gerente" {% if funcionario[4] == 'gerente' %}selected{% endif %}>Gerente</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ url_for('listar_funcionarios') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
