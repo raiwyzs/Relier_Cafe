@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Cadastro de Funcionário</h2>
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{{ url_for('cadastro') }}">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email válido" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <select class="form-select" id="categoria" name="categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="cozinheiro">Cozinheiro</option>
+                        <option value="caixa">Caixa</option>
+                        <option value="gerente">Gerente</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Crie uma senha segura" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href="{{ url_for('listar_funcionarios') }}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
