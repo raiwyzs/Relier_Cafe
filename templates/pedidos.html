@@ -1,18 +1,72 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Cadastro de Funcionário</h2>
-<form method="post">
-  <input type="text" name="nome" placeholder="Nome" required><br>
-  <input type="email" name="email" placeholder="Email" required><br>
-  <input type="text" name="telefone" placeholder="Telefone" required><br>
-  <select name="categoria" required>
-    <option value="">Categoria</option>
-    <option value="cozinheiro">Cozinheiro</option>
-    <option value="caixa">Caixa</option>
-    <option value="gerente">Gerente</option>
-  </select><br>
-  <input type="password" name="senha" placeholder="Senha" required><br>
-  <button type="submit">Cadastrar</button>
-</form>
-<a href="{{ url_for('login') }}">Já tem conta? Login</a>
+<div class="container mt-4">
+    <h2 class="mb-4">Registrar Novo Pedido</h2>
+    
+    {% if produtos %}
+    <form method="post">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5>Produtos Disponíveis</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for produto in produtos %}
+                    <div class="col-md-6 mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="produtos" 
+                                   id="produto-{{ produto[0] }}" value="{{ produto[0] }}">
+                            <label class="form-check-label" for="produto-{{ produto[0] }}">
+                                {{ produto[1] }} - R$ {{ "%.2f"|format(produto[2]) }}
+                            </label>
+                            <input type="number" class="form-control mt-2" 
+                                   name="quantidade_{{ produto[0] }}" min="1" value="1" 
+                                   style="width: 80px;">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5>Forma de Pagamento</h5>
+            </div>
+            <div class="card-body">
+                <select class="form-select" name="forma_pagamento" required>
+                    <option value="">Selecione a forma de pagamento</option>
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="cartao_debito">Cartão de Débito</option>
+                    <option value="cartao_credito">Cartão de Crédito</option>
+                    <option value="pix">PIX</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-success me-md-2">
+                <i class="bi bi-check-circle"></i> Registrar Pedido
+            </button>
+            <a href="{{ url_for('painel') }}" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Cancelar
+            </a>
+        </div>
+    </form>
+    {% else %}
+    <div class="alert alert-warning">
+        Nenhum produto cadastrado no sistema.
+    </div>
+    {% endif %}
+</div>
+
+<!-- Adicionando ícones do Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+<style>
+    .form-check-input:checked + label {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+</style>
 {% endblock %}
