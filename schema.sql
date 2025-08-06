@@ -1,16 +1,10 @@
-DROP TABLE IF EXISTS funcionarios;
-DROP TABLE IF EXISTS produtos;
-DROP TABLE IF EXISTS pedidos;
-DROP TABLE IF EXISTS pedido_produto;
-DROP TABLE IF EXISTS ingredientes;
-DROP TABLE IF EXISTS pedido_ingrediente;
-
+-- schema.sql
 CREATE TABLE IF NOT EXISTS funcionarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
+    email TEXT UNIQUE NOT NULL,
     telefone TEXT NOT NULL,
-    categoria TEXT NOT NULL, -- cozinheiro, caixa, gerente
+    categoria TEXT NOT NULL,
     senha_hash TEXT NOT NULL
 );
 
@@ -29,14 +23,6 @@ CREATE TABLE IF NOT EXISTS pedidos (
     FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id)
 );
 
-CREATE TABLE IF NOT EXISTS pedido_produto (
-    pedido_id INTEGER,
-    produto_id INTEGER,
-    quantidade INTEGER NOT NULL,
-    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
-    FOREIGN KEY (produto_id) REFERENCES produtos(id)
-);
-
 CREATE TABLE IF NOT EXISTS ingredientes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
@@ -44,9 +30,10 @@ CREATE TABLE IF NOT EXISTS ingredientes (
 );
 
 CREATE TABLE IF NOT EXISTS pedido_ingrediente (
-    pedido_id INTEGER,
-    ingrediente_id INTEGER,
+    pedido_id INTEGER NOT NULL,
+    ingrediente_id INTEGER NOT NULL,
     quantidade INTEGER NOT NULL,
+    PRIMARY KEY (pedido_id, ingrediente_id),
     FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
     FOREIGN KEY (ingrediente_id) REFERENCES ingredientes(id)
 );
