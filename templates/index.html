@@ -1,16 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Painel - Relier Café</title>
 </head>
 <body>
-    <h1>Teste</h1>
     {% extends 'base.html' %}
     {% block content %}
     <h2>Bem-vindo, {{ funcionario.nome }}!</h2>
     <p>Categoria: {{ funcionario.categoria }}</p>
+    
+    <div class="row mt-4">
+        {% if funcionario.categoria == 'gerente' %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Funcionários</h5>
+                    <p class="card-text">Gerencie os funcionários da cafeteria</p>
+                    <a href="{{ url_for('listar_funcionarios') }}" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Relatórios</h5>
+                    <p class="card-text">Acompanhe o desempenho financeiro</p>
+                    <a href="{{ url_for('relatorios') }}" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if funcionario.categoria in ['caixa', 'gerente'] %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pedidos</h5>
+                    <p class="card-text">Registre novos pedidos</p>
+                    <a href="{{ url_for('pedidos') }}" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Preços</h5>
+                    <p class="card-text">Gerencie a tabela de preços</p>
+                    <a href="{{ url_for('precos') }}" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Perfil</h5>
+                    <p class="card-text">Visualize suas informações</p>
+                    <a href="{{ url_for('perfil') }}" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>
