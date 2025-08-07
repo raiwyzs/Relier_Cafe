@@ -33,7 +33,7 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 
 ## 📝 Sobre o Projeto
 
-Projeto desenvolvido para a disciplina de Programa de Sistemas para Internet (PSI).
+Projeto desenvolvido para a disciplina de Programação de Sistemas para Internet (PSI).
 
 ## 📌 Como Contribuir
 
