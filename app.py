@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, make_response, abort
+from flask import Flask, render_template, redirect, url_for, request, flash, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -186,16 +186,6 @@ def painel():
 def perfil():
     return render_template('perfil.html', funcionario=current_user)
 
-@app.route('/recuperar_senha', methods=['GET', 'POST'])
-def recuperar_senha():
-    if request.method == 'POST':
-        email = request.form['email']
-        funcionario = buscar_funcionario_por_email(email)
-        if funcionario:
-            flash('Instruções de recuperação de senha enviadas para o email.')
-        else:
-            flash('Email não encontrado.')
-    return render_template('recuperar_senha.html')
 
 @app.route('/precos', methods=['GET', 'POST'])
 @login_required
