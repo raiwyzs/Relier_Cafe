@@ -1,5 +1,75 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+  /* Container */
+  h2, h3 {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  /* Mensagem */
+  .alert {
+    padding: 10px;
+    background-color: #d4edda;
+    color: #573b15;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  /* Tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #af6f4c;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Inputs e botões */
+  input[type="text"], 
+  input[type="number"] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: auto;
+  }
+
+  button {
+    padding: 6px 12px;
+    background-color: #af6f4c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #af6f4c;
+  }
+
+  form {
+    margin-top: 10px;
+  }
+</style>
 <h2>Tabela de Preços</h2>
 
 {% if mensagem %}
