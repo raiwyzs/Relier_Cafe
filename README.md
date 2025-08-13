@@ -60,6 +60,13 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 5. **Acessar**:
    - URL: http://localhost:5000
    - Login de teste: raissa.gerente@reliercafe.com / SenhaSegura123
+
+## 📌 Capturas de Tela
+Página de Login https://i.imgur.com/XaQm2fD.png	
+Painel de Controle https://i.imgur.com/YbGJ4kR.png
+Gestão de Funcionários	https://i.imgur.com/L8WjKfN.png
+Registro de Pedidos https://i.imgur.com/9zQZc3P.png	
+
   
 ## 📄 Licença
 
