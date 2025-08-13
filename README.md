@@ -8,11 +8,20 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 
 ## ✨ Funcionalidades
 
-- Registro de pedidos
-- Atualização de preços
-- Relatórios gerenciais
-- Gestão de perfil
-- Controle financeiro
+### 🧑‍💼 Módulo de Funcionários
+- Cadastro de gerentes, caixas e cozinheiros
+- Edição e exclusão de colaboradores
+- Controle de acesso por categoria
+
+### 💰 Módulo Financeiro
+- Registro de pedidos com cálculo automático
+- Atualização de preços em tempo real
+- Relatórios mensais de renda e custos
+
+### ☕ Módulo de Pedidos
+- Interface intuitiva para caixas
+- Multiplos métodos de pagamento
+- Histórico completo
 
 
   ## 🛠 **Tecnologias**  
