@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, abort
+from flask import Flask, render_template, redirect, url_for, request, flash, abort, make_response
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -84,6 +84,16 @@ def cadastro():
         return redirect(url_for('painel'))
 
     return render_template('cadastro.html')
+
+@app.route('/alternar_tema')
+def alternar_tema():
+    tema_atual = request.cookies.get('tema', 'claro')
+    novoTema = 'escuro' if tema_atual == 'claro' else 'claro'
+    
+    resposta = make_response(redirect(url_for('painel')))
+    resposta.set_cookie('tema', novoTema, max_age=30*24*60*60)
+    flash(f"Tema alterado para {novoTema}!")
+    return resposta
 
 @app.route('/funcionarios')
 @login_required
