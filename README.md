@@ -64,7 +64,7 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 ## 📌 Capturas de Tela
 | Login | Painel |
 |-------|--------|
-| ![Login](images/páginadelogin.png) | ![Painel](docs/images/painel.png) |
+| ![Login](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/P%C3%A1gina%20De%20Login.png) | ![Painel](docs/images/painel.png) |
 
   
 ## 📄 Licença
