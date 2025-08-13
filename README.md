@@ -60,6 +60,11 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 5. **Acessar**:
    - URL: http://localhost:5000
    - Login de teste: raissa.gerente@reliercafe.com / SenhaSegura123
+  
+## 📄 Licença
+
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para detalhes.
+
 ## 📝 Sobre o Projeto
 
 Projeto desenvolvido para a disciplina de Programação de Sistemas para Internet (PSI).
