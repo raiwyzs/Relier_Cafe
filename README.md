@@ -64,7 +64,7 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
 ## 📌 Capturas de Tela
 | Inicial | Login | Painel | Registro de Funcionarios | Tabela de Preços |
 |-------|--------|-------|--------|-------|
-|![Inicial](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/P%C3%A1gina%20Inicial.png)| ![Login](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/P%C3%A1gina%20De%20Login.png) | ![Painel](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Painel.png) | ![Registro de Funcionarios](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Registro%20de%20Funcionarios%20.png) | ![Tabela de Preços]([docs/images/painel.png](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Tabela%20de%20pre%C3%A7os.png)) | 
+|![Inicial](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/P%C3%A1gina%20Inicial.png)| ![Login](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/P%C3%A1gina%20De%20Login.png) | ![Painel](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Painel.png) | ![Registro de Funcionarios](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Registro%20de%20Funcionarios%20.png) | ![Tabela de Preços](https://github.com/raiwyzs/Relier_Cafe/blob/main/images/Tabela%20de%20pre%C3%A7os.png) | 
 
   
 ## 📄 Licença
