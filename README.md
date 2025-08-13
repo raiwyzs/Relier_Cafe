@@ -49,8 +49,17 @@ Relier Café é um sistema pensado para facilitar a rotina da equipe, integrando
    git clone https://github.com/raiwyzs/Relier_Cafe.git
    cd Relier_Cafe
    pip install -r requirements.txt
-  
 
+3. **Inicializar o banco de dados**:
+   ```bash
+   python insert.py
+
+4. **Rodar aplicação**:
+   ```bash
+   python app.py
+5. **Acessar**:
+   URL: http://localhost:5000
+   Login de teste: raissa.gerente@reliercafe.com / SenhaSegura123
 ## 📝 Sobre o Projeto
 
 Projeto desenvolvido para a disciplina de Programação de Sistemas para Internet (PSI).
